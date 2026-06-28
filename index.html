@@ -1822,6 +1822,48 @@ body.arranging .deck { scroll-snap-type: none; }
   .rail { display: none; }
   .page { padding: 72px 22px 60px; }
 }
+@media (max-width: 600px) {
+  /* Scroll: disable snap so pages flow naturally */
+  .deck { scroll-snap-type: none !important; }
+  .page { scroll-snap-align: none !important; min-height: auto !important; padding: 64px 20px 48px; }
+  .page-num { display: none; }
+
+  /* Cover (page 1) */
+  .cover-hero { flex-direction: column; min-height: auto; padding-top: 16px; gap: 28px; }
+  .cover-ba { width: 100% !important; margin: 0 !important; }
+  .cover-text { max-width: 100% !important; }
+
+  /* Page 2 — hide constellation, full-width left column */
+  .page[data-label="02"] .split > .reveal:last-child { display: none; }
+  .page[data-label="02"] .stack > .reveal:first-child { margin-top: 0 !important; }
+  .page[data-label="02"] .stack > .qlist { margin-top: 16px !important; }
+  .page[data-label="02"] .stack { margin-top: 0 !important; }
+
+  /* Page 3 — pipeline vertical */
+  .pipe-h { grid-template-columns: 1fr !important; gap: 0; }
+  .pwire-h { display: none !important; }
+  .pstep-h { margin-bottom: 20px; }
+  .pdown { display: none !important; }
+  .split[style*="2fr 1fr"] { grid-template-columns: 1fr !important; }
+  .linked-stack { flex-direction: row; flex-wrap: wrap; gap: 16px; }
+  .linked-stack .lr-row { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+  .linked-stack .lr-wire { display: none; }
+
+  /* Page 4 — mosaic 1 column, phone centered */
+  .mosaic { grid-template-columns: 1fr !important; }
+  .phone { width: 200px !important; margin: 0 auto; }
+  div[style*="grid-template-columns:1.65fr"] { display: flex !important; flex-direction: column !important; gap: 24px !important; }
+
+  /* Stats wrap */
+  .stats { flex-wrap: wrap; gap: 20px 32px; }
+
+  /* Typography scale-down */
+  .page h2.display { font-size: clamp(32px, 8vw, 52px) !important; }
+  .qlist li { font-size: 16px !important; }
+
+  /* Hover effects: disable lift on touch (no hover state on mobile) */
+  .gcard:hover, .browser:hover, .lr-sq:hover, .phone:hover { transform: none !important; box-shadow: none !important; }
+}
 </style>
 
 
