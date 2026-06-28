@@ -1846,18 +1846,26 @@ body.arranging .deck { scroll-snap-type: none; }
   .mob-nav-ham { background: none; border: none; cursor: pointer; padding: 4px; }
 
   /* Cover (page 1) */
-  .page[data-label="01"] { padding-top: 80px; padding-bottom: 32px; }
+  .page[data-label="01"] { padding-top: 80px; padding-bottom: 40px; }
   .cover-variant { padding: 0 !important; }
-  .cover-hero { flex-direction: column; min-height: auto; padding-top: 0; gap: 0; }
-  .cover-text .brand { display: none; } /* nav replaces it */
-  .cover-text { max-width: 100% !important; }
+  .cover-hero { flex-direction: column !important; min-height: auto !important; padding-top: 0 !important; gap: 0; align-items: flex-start !important; }
+  .cover-text .brand { display: none !important; }
+  .cover-text { max-width: 100% !important; width: 100% !important; }
   .cover-text > div:first-of-type { margin-top: 0 !important; }
-  .cover-ba { width: 100% !important; margin: 28px 0 0 !important; }
+  /* H1 sizing */
+  .page[data-label="01"] h1.display { font-size: 42px !important; line-height: 1.04 !important; margin-top: 12px !important; }
+  /* Body copy */
+  .page[data-label="01"] .lede { font-size: 15px !important; max-width: 100% !important; line-height: 1.6 !important; }
+  /* BA slider full width */
+  .cover-ba { width: 100% !important; margin: 28px 0 0 !important; flex-shrink: 0; }
+  .cover-ba .ba { aspect-ratio: 4/3 !important; }
   .cover-ba .cap { display: none; }
-  /* "FOR" pill — style the existing role-card as a centered pill */
-  .cover-text > div:last-child { margin-top: 28px; justify-content: center; }
-  .role-card { padding: 10px 28px !important; border-radius: 999px !important; font-size: 14px !important; }
-  .cover-text > div:last-child > div:last-child { display: none; } /* hide "Rachel Siner" label */
+  /* FOR Netflix pill — centered at bottom */
+  .cover-text > div:last-child { margin-top: 28px; justify-content: center !important; flex-direction: column; align-items: center; gap: 0; }
+  .role-card { padding: 13px 36px !important; border-radius: 999px !important; gap: 8px !important; }
+  .role-card .rl { font-size: 11px !important; }
+  .role-card .rv { font-size: 15px !important; }
+  .cover-text > div:last-child > div:last-child { display: none !important; } /* hide Rachel Siner label */
 
   /* Page 2 — hide constellation, full-width left column */
   .page[data-label="02"] .split > .reveal:last-child { display: none; }
