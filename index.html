@@ -1837,11 +1837,16 @@ body.arranging .deck { scroll-snap-type: none; }
 .mob-nav { display: none; }
 
 @media (max-width: 600px) {
-  /* Scroll: disable snap so pages flow naturally */
-  .deck { scroll-snap-type: none !important; }
-  .page { scroll-snap-align: none !important; min-height: auto !important; padding: 64px 20px 48px; }
+  /* Prevent horizontal overflow */
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  .deck { scroll-snap-type: none !important; overflow-x: hidden; }
+  .page { scroll-snap-align: none !important; min-height: auto !important; padding: 64px 22px 48px; overflow-x: hidden; max-width: 100vw; box-sizing: border-box; }
   .page-num { display: none; }
   .scroll-hint { display: none; }
+
+  /* Force all reveal elements visible on mobile — IntersectionObserver doesn't fire reliably */
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .cg-inpage .gcard { opacity: 1 !important; transform: none !important; }
 
   /* Mobile nav */
   .mob-nav {
@@ -1852,8 +1857,8 @@ body.arranging .deck { scroll-snap-type: none; }
   }
   .mob-nav-logo { display: flex; align-items: center; gap: 10px; }
   .mob-nav-logo img { width: 38px; height: 38px; border-radius: 50%; }
-  .mob-nav-name { font-family: 'Archivo Black', sans-serif; font-size: 12px; font-weight: 800; color: #fff; letter-spacing: 0.12em; line-height: 1.2; }
-  .mob-nav-sub { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; font-weight: 600; }
+  .mob-nav-name { font-family: 'Archivo Black', sans-serif; font-style: italic; font-size: 13px; font-weight: 900; color: var(--cs-pink-soft); letter-spacing: 0.04em; line-height: 1.1; }
+  .mob-nav-sub { font-size: 9px; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; font-weight: 700; text-transform: uppercase; }
   .mob-nav-ham { background: none; border: none; cursor: pointer; padding: 4px; }
 
   /* Cover (page 1) */
@@ -1867,7 +1872,7 @@ body.arranging .deck { scroll-snap-type: none; }
   /* Kicker */
   .page[data-label="01"] .kicker { font-size: 11px !important; letter-spacing: 0.14em !important; }
   /* H1 — fills width, 3 lines like the screenshot */
-  .page[data-label="01"] h1.display { font-size: 58px !important; line-height: 1.0 !important; margin-top: 14px !important; letter-spacing: -0.01em !important; }
+  .page[data-label="01"] h1.display { font-size: clamp(44px, 13vw, 58px) !important; line-height: 1.0 !important; margin-top: 14px !important; letter-spacing: -0.01em !important; word-break: break-word; }
   /* Body copy */
   .page[data-label="01"] .lede { font-size: 17px !important; max-width: 100% !important; line-height: 1.62 !important; margin-top: 28px !important; gap: 20px !important; }
   /* BA slider — card with purple border glow */
