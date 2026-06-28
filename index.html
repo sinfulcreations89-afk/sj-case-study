@@ -1846,26 +1846,35 @@ body.arranging .deck { scroll-snap-type: none; }
   .mob-nav-ham { background: none; border: none; cursor: pointer; padding: 4px; }
 
   /* Cover (page 1) */
-  .page[data-label="01"] { padding-top: 80px; padding-bottom: 40px; }
+  .page[data-label="01"] { padding-top: 76px; padding-bottom: 48px; }
   .cover-variant { padding: 0 !important; }
+  .page[data-label="01"] .page-inner { padding: 0 24px !important; max-width: 100% !important; }
   .cover-hero { flex-direction: column !important; min-height: auto !important; padding-top: 0 !important; gap: 0; align-items: flex-start !important; }
   .cover-text .brand { display: none !important; }
   .cover-text { max-width: 100% !important; width: 100% !important; }
-  .cover-text > div:first-of-type { margin-top: 0 !important; }
-  /* H1 sizing */
-  .page[data-label="01"] h1.display { font-size: 42px !important; line-height: 1.04 !important; margin-top: 12px !important; }
+  .cover-text > div:first-of-type { margin-top: 24px !important; }
+  /* Kicker */
+  .page[data-label="01"] .kicker { font-size: 11px !important; letter-spacing: 0.14em !important; }
+  /* H1 — fills width, 3 lines like the screenshot */
+  .page[data-label="01"] h1.display { font-size: 58px !important; line-height: 1.0 !important; margin-top: 14px !important; letter-spacing: -0.01em !important; }
   /* Body copy */
-  .page[data-label="01"] .lede { font-size: 15px !important; max-width: 100% !important; line-height: 1.6 !important; }
-  /* BA slider full width */
-  .cover-ba { width: 100% !important; margin: 28px 0 0 !important; flex-shrink: 0; }
-  .cover-ba .ba { aspect-ratio: 4/3 !important; }
-  .cover-ba .cap { display: none; }
-  /* FOR Netflix pill — centered at bottom */
-  .cover-text > div:last-child { margin-top: 28px; justify-content: center !important; flex-direction: column; align-items: center; gap: 0; }
-  .role-card { padding: 13px 36px !important; border-radius: 999px !important; gap: 8px !important; }
-  .role-card .rl { font-size: 11px !important; }
-  .role-card .rv { font-size: 15px !important; }
-  .cover-text > div:last-child > div:last-child { display: none !important; } /* hide Rachel Siner label */
+  .page[data-label="01"] .lede { font-size: 17px !important; max-width: 100% !important; line-height: 1.62 !important; margin-top: 28px !important; gap: 20px !important; }
+  /* BA slider — card with purple border glow */
+  .cover-ba { width: 100% !important; margin: 32px 0 0 !important; flex-shrink: 0;
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(120,90,240,0.4);
+    box-shadow: 0 0 32px rgba(80,50,200,0.25), 0 0 0 1px rgba(229,82,127,0.08); }
+  .cover-ba .ba { aspect-ratio: 16/11 !important; border-radius: 0 !important; }
+  .cover-ba .ba-head { padding: 10px 12px !important; background: rgba(8,12,30,0.55); }
+  .cover-ba .cap { display: none !important; }
+  /* FOR Netflix · ECXD pill — full-width, prominent */
+  .cover-text > div:last-child { margin-top: 32px !important; justify-content: center !important; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; }
+  .role-card { padding: 16px 24px !important; border-radius: 999px !important; gap: 10px !important;
+    justify-content: center !important; width: 100% !important; box-sizing: border-box !important;
+    background: rgba(8,12,30,0.75) !important; border: 1.5px solid rgba(229,82,127,0.4) !important; }
+  .role-card .rl { font-size: 12px !important; letter-spacing: 0.16em !important; color: rgba(255,255,255,0.6) !important; }
+  .role-card .rv { font-size: 19px !important; font-weight: 800 !important; }
+  .cover-text > div:last-child > div:last-child { display: none !important; }
 
   /* Page 2 — hide constellation, full-width left column */
   .page[data-label="02"] .split > .reveal:last-child { display: none; }
