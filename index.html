@@ -2,6 +2,17 @@
 <html lang="en"><head>
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <script>
+    // Auto-reload when a new version is deployed — bypasses CDN cache permanently
+    fetch('assets/version.txt?t=' + Date.now())
+      .then(r => r.text()).then(v => {
+        v = v.trim();
+        if (localStorage.getItem('cs-v') !== v) {
+          localStorage.setItem('cs-v', v);
+          if (document.readyState === 'loading') location.reload(true);
+        }
+      }).catch(function(){});
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sapphic Junkie - Case Study · ECXD</title>
   <style>/* ============================================================
