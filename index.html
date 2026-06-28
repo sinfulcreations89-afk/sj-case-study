@@ -1851,6 +1851,21 @@ body.arranging .deck { scroll-snap-type: none; }
   .mob-nav-sub { font-size: 9px; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; font-weight: 700; text-transform: uppercase; }
   .mob-nav-ham { background: none; border: none; cursor: pointer; padding: 4px; }
 
+  .mob-menu {
+    position: absolute; top: calc(100% + 10px); left: 14px; right: 14px;
+    display: grid; gap: 8px; padding: 12px; border-radius: 20px;
+    background: rgba(8,12,30,0.96); border: 1px solid rgba(229,140,178,0.24);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.48), 0 0 30px rgba(90,108,240,0.18);
+    opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity .18s ease, transform .18s ease;
+  }
+  .mob-nav.open .mob-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .mob-menu a {
+    display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 13px;
+    border-radius: 14px; color: #fff; text-decoration: none; font-weight: 800; font-size: 13px;
+    background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.06);
+  }
+  .mob-menu a span { color: var(--cs-pink-soft); font-family: var(--font-display); font-style: italic; letter-spacing: .08em; }
+
   /* Cover (page 1) — lock everything to viewport width */
   .page[data-label="01"] { padding-top: 76px; padding-bottom: 48px; }
   .cover-variant { padding: 0 !important; }
@@ -1911,7 +1926,69 @@ body.arranging .deck { scroll-snap-type: none; }
 
   /* Typography scale-down */
   .page h2.display { font-size: clamp(32px, 8vw, 52px) !important; }
+
+  .browser-bar { height: 30px !important; padding: 0 10px !important; }
+  .dots { gap: 5px !important; }
+  .dots i { width: 8px !important; height: 8px !important; }
+  .url { font-size: 0 !important; height: 17px !important; padding: 0 8px !important; }
+  .cap { flex-wrap: wrap; gap: 4px 8px; font-size: 11px !important; line-height: 1.35 !important; }
+  .stats { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px !important; width: 100%; }
+  .stat { min-width: 0 !important; padding: 14px 10px !important; border-radius: 16px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  .learn { grid-template-columns: 1fr !important; gap: 12px !important; margin-top: 28px !important; }
+  .learn .lc { padding: 16px !important; }
+  .page[data-label="06"] .split { direction: ltr !important; }
+  .page[data-label="06"] .lede br { display: none; }
+  .page[data-label="08"] .cta-btns { margin-top: 34px !important; }
+  .page[data-label="08"] .btn { width: 100%; justify-content: center; min-height: 48px; }
   .qlist li { font-size: 16px !important; }
+
+  /* Page 1 match: rounded mobile case-study card */
+  .mob-nav {
+    top: 14px; left: 16px; right: 16px; padding: 28px 28px 18px; border-bottom: 0;
+    border-radius: 34px 34px 0 0; background: linear-gradient(115deg, rgba(34,20,47,0.92), rgba(5,12,31,0.94) 58%, rgba(4,10,27,0.94));
+  }
+  .mob-nav-logo img { width: 48px; height: 48px; box-shadow: 0 0 28px rgba(255,120,170,0.3); }
+  .mob-nav-logo { gap: 13px; }
+  .mob-nav-name { font-size: 20px; letter-spacing: -0.02em; }
+  .mob-nav-sub { font-size: 10.5px; color: rgba(255,255,255,0.76); letter-spacing: 0.34em; }
+  .mob-nav-ham svg rect { fill: var(--cs-pink-soft); }
+  .mob-menu { top: calc(100% + 4px); left: 18px; right: 18px; }
+
+  .page[data-label="01"] {
+    min-height: calc(100vh - 28px) !important; margin: 14px 16px 28px; padding: 124px 22px 40px;
+    border-radius: 34px; border: 1px solid rgba(255,255,255,0.16);
+    background:
+      radial-gradient(80% 34% at 5% 6%, rgba(229,82,127,0.22), transparent 64%),
+      radial-gradient(80% 60% at 92% 78%, rgba(55,105,230,0.18), transparent 65%),
+      rgba(4,10,27,0.78);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 55px rgba(0,0,0,0.44);
+  }
+  .page[data-label="01"] .page-inner { padding: 0 0 !important; }
+  .page[data-label="01"] .cover-text > div:first-of-type { margin-top: 26px !important; }
+  .page[data-label="01"] .kicker { display: flex; gap: 18px; font-size: 12px !important; letter-spacing: 0.22em !important; color: var(--cs-pink-soft); }
+  .page[data-label="01"] .kicker::before { width: 22px; opacity: .9; }
+  .page[data-label="01"] h1.display { font-size: clamp(42px, 11.8vw, 56px) !important; line-height: .98 !important; margin-top: 30px !important; letter-spacing: -0.035em !important; }
+  .page[data-label="01"] .lede { margin-top: 32px !important; font-size: 17px !important; line-height: 1.62 !important; gap: 20px !important; }
+  .cover-text > div:last-child { display: none !important; }
+  .page[data-label="01"] .cover-variant .cover-hero .cover-ba { margin-top: 38px !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
+  .cover-ba .ba-head { padding: 0 !important; margin-bottom: 22px; display: grid !important; grid-template-columns: 1fr 1fr; gap: 18px !important; background: transparent !important; }
+  .cover-ba .ba-pill { min-height: 46px; display: flex; align-items: center; justify-content: center; padding: 0 12px !important; border-radius: 999px; font-size: 12px; letter-spacing: .16em; }
+  .cover-ba .ba-pill.l::before { content: '↳'; margin-right: 10px; color: var(--cs-pink-soft); }
+  .cover-ba .ba { border-radius: 22px !important; aspect-ratio: 16/13.7 !important; border: 1px solid rgba(120,150,255,0.24); box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 20px 50px rgba(0,0,0,.45); }
+  .cover-ba .ba .knob { width: 54px; height: 54px; }
+  .cover-ba .cap { display: flex !important; margin-top: 18px; padding: 0 10px; color: rgba(255,255,255,0.58); }
+  .cover-ba .cap .n { color: var(--cs-pink-soft); }
+  .cover-ba .cap .t { color: #fff; }
+
+  @media (max-width: 390px) {
+    .mob-nav { padding-left: 22px; padding-right: 22px; }
+    .mob-nav-name { font-size: 17px; }
+    .mob-nav-logo img { width: 44px; height: 44px; }
+    .page[data-label="01"] h1.display { font-size: 39px !important; }
+    .page[data-label="01"] .lede { font-size: 16px !important; }
+    .cover-ba .ba-head { gap: 10px !important; }
+    .cover-ba .ba-pill { font-size: 10.5px; }
+  }
 
   /* Hover effects: disable lift on touch (no hover state on mobile) */
   .gcard:hover, .browser:hover, .lr-sq:hover, .phone:hover { transform: none !important; box-shadow: none !important; }
@@ -1935,9 +2012,16 @@ body.arranging .deck { scroll-snap-type: none; }
         <div class="mob-nav-sub">CONTENT STUDIO</div>
       </div>
     </div>
-    <button class="mob-nav-ham" aria-label="Menu">
+    <button class="mob-nav-ham" aria-label="Open section menu" aria-controls="mob-menu" aria-expanded="false">
       <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><rect y="0" width="22" height="2" rx="1" fill="white"/><rect y="7" width="22" height="2" rx="1" fill="white"/><rect y="14" width="22" height="2" rx="1" fill="white"/></svg>
     </button>
+    <div class="mob-menu" id="mob-menu" aria-label="Case study sections">
+      <a href="#" data-page="0"><span>01</span>Cover</a>
+      <a href="#" data-page="1"><span>02</span>Audience Seat</a>
+      <a href="#" data-page="2"><span>03</span>Workflow</a>
+      <a href="#" data-page="3"><span>04</span>Design</a>
+      <a href="#" data-page="4"><span>05</span>Next Steps</a>
+    </div>
   </header>
 
   <div class="scroll-hint" aria-hidden="true">
@@ -2232,4 +2316,4 @@ body.arranging .deck { scroll-snap-type: none; }
 .cg-inpage .gcard.gc-br   {left:62.94% !important;top:67.93%  !important;width:37.12% !important;}
 .cg-inpage .gcenter{position:absolute !important;left:50% !important;top:45% !important;transform:translate(-50%,-50%) !important;z-index:8;}
 </style><script>try{var L=JSON.parse(localStorage.getItem("sj-casestudy-layout")||"{}"),c={};for(var k in L){if(/^d.+-[0-9]+$/.test(k)&&!/^d0[26]-/.test(k))c[k]=L[k];}localStorage.setItem("sj-casestudy-layout",JSON.stringify(c));}catch(e){}</script>
-<script src="assets/app.js?v=13"></script></body></html>
+<script src="assets/app.js?v=15"></script></body></html>

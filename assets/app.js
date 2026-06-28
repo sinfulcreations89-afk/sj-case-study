@@ -64,6 +64,35 @@
     });
   }, 400);
 
+
+
+  // ---- Mobile section menu ----
+  const mobNav = document.querySelector('.mob-nav');
+  const mobBtn = document.querySelector('.mob-nav-ham');
+  const mobMenu = document.getElementById('mob-menu');
+  if (mobNav && mobBtn && mobMenu) {
+    function closeMobileMenu() {
+      mobNav.classList.remove('open');
+      mobBtn.setAttribute('aria-expanded', 'false');
+    }
+    mobBtn.addEventListener('click', () => {
+      const open = !mobNav.classList.contains('open');
+      mobNav.classList.toggle('open', open);
+      mobBtn.setAttribute('aria-expanded', String(open));
+    });
+    mobMenu.querySelectorAll('[data-page]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMobileMenu();
+        goTo(parseInt(link.dataset.page || '0', 10));
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!mobNav.contains(e.target)) closeMobileMenu();
+    });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+  }
+
   // ---- Keyboard nav ----
   window.addEventListener('keydown', (e) => {
     var _ae = document.activeElement;
