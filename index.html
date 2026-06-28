@@ -2,17 +2,6 @@
 <html lang="en"><head>
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <script>
-    // Auto-reload when a new version is deployed — bypasses CDN cache permanently
-    fetch('assets/version.txt?t=' + Date.now())
-      .then(r => r.text()).then(v => {
-        v = v.trim();
-        if (localStorage.getItem('cs-v') !== v) {
-          localStorage.setItem('cs-v', v);
-          if (document.readyState === 'loading') location.reload(true);
-        }
-      }).catch(function(){});
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sapphic Junkie - Case Study · ECXD</title>
   <link rel="icon" href="assets/79282b43-cc24-46e4-b4d9-3f7cb6072c50.png">
@@ -1862,30 +1851,33 @@ body.arranging .deck { scroll-snap-type: none; }
   .mob-nav-sub { font-size: 9px; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; font-weight: 700; text-transform: uppercase; }
   .mob-nav-ham { background: none; border: none; cursor: pointer; padding: 4px; }
 
-  /* Cover (page 1) */
+  /* Cover (page 1) — lock everything to viewport width */
   .page[data-label="01"] { padding-top: 76px; padding-bottom: 48px; }
   .cover-variant { padding: 0 !important; }
-  .page[data-label="01"] .page-inner { padding: 0 24px !important; max-width: 100% !important; }
-  .cover-hero { flex-direction: column !important; min-height: auto !important; padding-top: 0 !important; gap: 0; align-items: flex-start !important; }
+  .page[data-label="01"] .page-inner { padding: 0 22px !important; max-width: 100% !important; width: 100% !important; box-sizing: border-box !important; }
+  /* Cover hero: force column, override cover-ba-style's !important align-items with more specific selector */
+  .page[data-label="01"] .cover-variant .cover-hero { flex-direction: column !important; min-height: auto !important; padding-top: 0 !important; gap: 0 !important; align-items: stretch !important; width: 100% !important; overflow: hidden; }
   .cover-text .brand { display: none !important; }
-  .cover-text { max-width: 100% !important; width: 100% !important; }
+  .cover-text { max-width: 100% !important; width: 100% !important; box-sizing: border-box; overflow: hidden; }
   .cover-text > div:first-of-type { margin-top: 24px !important; }
   /* Kicker */
-  .page[data-label="01"] .kicker { font-size: 11px !important; letter-spacing: 0.14em !important; }
-  /* H1 — fills width, 3 lines like the screenshot */
-  .page[data-label="01"] h1.display { font-size: clamp(44px, 13vw, 58px) !important; line-height: 1.0 !important; margin-top: 14px !important; letter-spacing: -0.01em !important; word-break: break-word; }
+  .page[data-label="01"] .kicker { font-size: 11px !important; letter-spacing: 0.12em !important; }
+  /* H1 — sized to fit within viewport, 3 lines */
+  .page[data-label="01"] h1.display { font-size: min(11.5vw, 50px) !important; line-height: 1.02 !important; margin-top: 14px !important; letter-spacing: -0.01em !important; overflow-wrap: break-word; width: 100%; }
   /* Body copy */
-  .page[data-label="01"] .lede { font-size: 17px !important; max-width: 100% !important; line-height: 1.62 !important; margin-top: 28px !important; gap: 20px !important; }
-  /* BA slider — card with purple border glow */
-  .cover-ba { width: 100% !important; margin: 32px 0 0 !important; flex-shrink: 0;
-    border-radius: 18px; overflow: hidden;
-    border: 1px solid rgba(120,90,240,0.4);
-    box-shadow: 0 0 32px rgba(80,50,200,0.25), 0 0 0 1px rgba(229,82,127,0.08); }
-  .cover-ba .ba { aspect-ratio: 16/11 !important; border-radius: 0 !important; }
+  .page[data-label="01"] .lede { font-size: 16px !important; max-width: 100% !important; line-height: 1.62 !important; margin-top: 24px !important; gap: 18px !important; }
+  /* BA slider — full width card, override cover-ba-style min-width */
+  .page[data-label="01"] .cover-variant .cover-hero .cover-ba { width: 100% !important; max-width: 100% !important; flex: none !important; margin: 28px 0 0 !important;
+    border-radius: 16px !important; overflow: hidden !important;
+    border: 1px solid rgba(120,90,240,0.4) !important;
+    box-shadow: 0 0 28px rgba(80,50,200,0.22) !important;
+    display: flex !important; flex-direction: column !important; }
+  .cover-ba .ba { width: 100% !important; aspect-ratio: 16/11 !important; border-radius: 0 !important; }
+  .cover-ba .ba img { width: 100% !important; height: 100% !important; }
   .cover-ba .ba-head { padding: 10px 12px !important; background: rgba(8,12,30,0.55); }
   .cover-ba .cap { display: none !important; }
-  /* FOR Netflix · ECXD pill — full-width, prominent */
-  .cover-text > div:last-child { margin-top: 32px !important; justify-content: center !important; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; }
+  /* FOR Netflix · ECXD pill */
+  .cover-text > div:last-child { margin-top: 28px !important; justify-content: center !important; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; }
   .role-card { padding: 16px 24px !important; border-radius: 999px !important; gap: 10px !important;
     justify-content: center !important; width: 100% !important; box-sizing: border-box !important;
     background: rgba(8,12,30,0.75) !important; border: 1.5px solid rgba(229,82,127,0.4) !important; }
