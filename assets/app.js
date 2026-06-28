@@ -52,6 +52,17 @@
   }
   deck.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+  // Boot: run immediately so page 1 is never invisible on load or direct file open
+  update();
+  // Fallback: if scroll events don't fire (mobile free-scroll, file://, etc), force all pages in
+  setTimeout(function() {
+    pages.forEach(function(p) {
+      if (!p.classList.contains('in')) {
+        p.classList.add('in');
+        p.querySelectorAll('.reveal').forEach(function(r) { r.classList.add('shown'); });
+      }
+    });
+  }, 400);
 
   // ---- Keyboard nav ----
   window.addEventListener('keydown', (e) => {
