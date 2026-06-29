@@ -2315,5 +2315,105 @@ body.arranging .deck { scroll-snap-type: none; }
 .cg-inpage .gcard.gc-bl   {left:5.94%  !important;top:67.93%  !important;width:32.12% !important;}
 .cg-inpage .gcard.gc-br   {left:62.94% !important;top:67.93%  !important;width:37.12% !important;}
 .cg-inpage .gcenter{position:absolute !important;left:50% !important;top:45% !important;transform:translate(-50%,-50%) !important;z-index:8;}
+
+/* Local mobile page 1 containment override */
+@media (max-width: 600px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .page[data-label="01"],
+  .page[data-label="01"] * {
+    box-sizing: border-box;
+  }
+
+  .page[data-label="01"] {
+    width: auto !important;
+    max-width: calc(100% - 24px) !important;
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .page[data-label="01"] .page-inner,
+  .page[data-label="01"] .cover-text,
+  .page[data-label="01"] .cover-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .page[data-label="01"] h1.display {
+    width: 100% !important;
+    max-width: min(100%, 9.4ch) !important;
+    min-width: 0 !important;
+    font-size: clamp(26px, 7.4vw, 34px) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.045em !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  .page[data-label="01"] .lede {
+    width: 100% !important;
+    max-width: min(100%, 33ch) !important;
+    font-size: clamp(14.5px, 3.9vw, 16.5px) !important;
+    line-height: 1.52 !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .page[data-label="01"] .cover-variant .cover-hero .cover-ba {
+    width: 92% !important;
+    max-width: 92% !important;
+    min-width: 0 !important;
+    margin: 28px auto 0 !important;
+    overflow: visible !important;
+  }
+
+  .page[data-label="01"] .cover-ba .ba-head {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .page[data-label="01"] .cover-ba .ba-pill {
+    min-width: 0 !important;
+    min-height: 36px !important;
+    padding: 0 8px !important;
+    font-size: 8px !important;
+    letter-spacing: .1em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .page[data-label="01"] .cover-ba .ba {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 10.8 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .page[data-label="01"] .cover-ba .ba img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .page[data-label="01"] .cover-ba .ba .knob {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
 </style><script>try{var L=JSON.parse(localStorage.getItem("sj-casestudy-layout")||"{}"),c={};for(var k in L){if(/^d.+-[0-9]+$/.test(k)&&!/^d0[26]-/.test(k))c[k]=L[k];}localStorage.setItem("sj-casestudy-layout",JSON.stringify(c));}catch(e){}</script>
 <script src="assets/app.js?v=15"></script></body></html>
