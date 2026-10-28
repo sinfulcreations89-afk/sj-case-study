@@ -1,5 +1,48 @@
 # SJ Case Study — Session Handoff
 
+### 2026-10-27 (later) — Motion clips + "How the two connect" (uncommitted, NOT pushed)
+- Later edits (2026-10-27 evening): the separate "How the two connect" block was removed and its text merged into page 4's intro paragraphs (no "AI drafts the review" line). Page 4 kicker is now "Studio" and its h2 is "Where creator and fan meet". Page 5: no more "swipe up" anywhere. The swipe clip was re-recorded (`rate2.mp4`, steps-rate2.json: right, left, down, right), with all 6 writes answered locally and none sent.
+- Page 5 phones 01/02/03 are now looping muted videos: `assets/v2-fan-{discover,swipe,watch}.mp4` (+ `-poster.jpg`, 432x934, ~0.6-0.9 MB). 04 Review stays a still. Small inline script plays them only on screen and keeps them paused for reduced motion.
+- Recorder: headless Chrome CDP screencast + ffmpeg, scripts in the session scratchpad (`rec.py`, `standin.py`, `steps-rate.json`). Home + spice from the live fan app, signed out. Swipe deck from a local copy (`Documents/worktrees/app-case-study-rec`, detached origin/main 96f9bf1, node_modules symlinked, nothing committed) with a made-up stand-in session that only existed in the headless browser: every Supabase write was answered locally and never sent (9 writes caught), public reads used the anon key only.
+- Polls: Raven chose a DEMO poll (2026-10-27). Phone 04 now plays `v2-fan-review.mp4`: made-up poll "Which series has you hooked this week?" over four real series (Moonshadow 412 / Juliet & Juliet 386 / Khom Khlang 241 / Built In Love 168 made-up votes), stand-in user votes Juliet & Juliet. Served by `demopoll.py` (DEMO_POLL=1) in the recorder; vote answered locally. Caption now "Rate it, review it, vote in the weekly poll and see what other fans think." The real poll (closed, 0 votes, typo) is untouched.
+- New block at the end of page 5: "How the two connect / Studio is the back end" (Studio -> one shared database -> fan app + paragraph on publish switch, page switches, SJ Reviews -> Journal, community scores).
+- Fixed pre-existing mobile bug: every page h2 was 69px on phones (cs-tweaks override), clipping pages 2/3/5. `<style id="mobile-heading-fix">` sets clamp(30px,8.4vw,52px) at <=920px. Measured: no heading overflow at 375/390.
+- Previews: `Documents/worktrees/preview-page5-{desktop,mobile}.jpg`. Videos confirmed playing at both sizes, no horizontal scroll.
+- Raven 2026-10-27: "designed from the inside out is the studio backend" -> the "How the two connect / Studio is the back end" block MOVED from page 5 to the bottom of page 4 (`data-label="06"`). Page 5 is now just the fan loop.
+- Fixed pre-existing page 4 phone bug: the inline 1.4fr/1fr split never collapsed, so the text column sat off the left edge (h2 at -287px). Now one column at <=920px (text first, then screens stacked, phone centered); spaces added before the 4 `<br>`s in page 4 copy so words don't glue together when breaks are hidden on phones. Measured: nothing past the edge at 375/390.
+- Next: Raven approves the live preview (localhost:8756), then commit, then ask to publish (push to main = live).
+
+## 2026-10-27 — Stats/screenshots refresh, fan app page, Netflix removed (NOT published)
+
+**Project:** SJ case study, case.rachelsiner.com (GitHub Pages from `main` of `sinfulcreations89-afk/sj-case-study`; pushing to `main` = live, needs Raven's explicit OK).
+**Working copy:** `/Users/rachels/Documents/worktrees/sj-case-study-stats`, branch `update-stats-screenshots`, local commits `03ccd83` + `4f3072e`, NOT pushed. (The `Desktop/sj_case_src` path below is the OLD copy; it matches live `main`.)
+**Goal now:** add motion to the case study: (1) swipe cards in action, (2) polls, (3) editorial home page, (4) spice-level flames moving. Then preview, show Raven, ask to publish.
+
+**Completed**
+- Stats: 274 series / 73 studios / 283 talent (counts of public `fan_series`, `fan_productions`, `fan_talent` views), 22k+ followers (Raven's number).
+- New Studio screenshots `assets/v2-*.jpg` (series-all, talent-grid, talent-lookmhee, talent-sonya, series-hero, series-detail, companies, company-change, approvals, episode-review), captured read-only from her signed-in Chrome. Fan app shots `assets/v2-fan-{discover,swipe,watch,review}.jpg` from https://mobile-rust-eight.vercel.app.
+- New page 5 "Discover, watch, review, repeat" (`data-label="09"`, CSS `.fan-*`); page counters now /06; page-4 phone shows the fan app.
+- Netflix/ECXD removed (title, cover pill, "Why ECXD" kicker → "What's next"). The cover `.role-card` stays as an empty hidden placeholder: deleting it shifted `d01-N` dragids and hid the slider.
+- Cover headline/slider no longer touch: removed `d01-15` from `BAKED_LAYOUT` in `assets/app.js`, self-heal also strips `d01-15`, `app.js?v=14`, `<style id="cover-gap-fix">`, h1 `clamp(40px,3.6vw,69px)`. Side by side ≥1361px, stacked below text under that. Measured gaps at 1000/1200/1280/1310/1366/1440/1920.
+- Verified locally (desktop + 375px mobile, no horizontal scroll). Not verified on the live site.
+
+**Files touched:** `index.html`, `assets/app.js`, `assets/v2-*.jpg` (14 new).
+
+**Key decisions**
+- Public fan counts, not Studio totals (Studio shows 276 series / 105 companies incl. management + platforms).
+- Never drive swipes on Raven's real account, copy her auth tokens, or screen-record her Chrome (the extension window is off-screen; `screencapture` can't see it). Chrome `gif_creator` only captures stills: rejected.
+- Recording plan: headless Chrome + CDP `Page.startScreencast` (mobile 390x844, DPR 3) → ffmpeg (`/usr/local/bin/ffmpeg`) → short muted looping mp4, embedded as `<video autoplay muted loop playsinline>` inside the page-5 phone frames.
+
+**Remaining**
+1. Record from the live fan app (public, signed out): editorial home / Discover carousel (`/`); spice flames on `/series/2f602263-bbfc-80fa-9156-fcbb7c61e802` (Hometown Romance; flames animate on web, `SpiceMeter.tsx` WebFlames).
+2. Swipe deck (`/rate`) needs a signed-in user; Polls page is gated by `app_visibility` `page.polls=false` until launch (env `EXPO_PUBLIC_FEATURE_*` can force features locally). Plan: run a LOCAL fan app copy with a recording-only stand-in user, no writes to her account, nothing committed to the fan app repo. Or ask Raven. Unverified whether poll data is readable signed out.
+3. Add the clips to page 5, preview desktop + mobile, show Raven screenshots, ask to publish (push branch → `main`).
+
+**Risks / blockers**
+- `Desktop/sj_case_src` and `Documents/THAI APP/.../sj-case-study` are stale copies; the THAI APP one has 7 unpushed June mobile commits (v2–v5) that are NOT in this branch.
+- The Episode Review screenshot shows Raven's real raw notes, including a stray "dfadfafd asdfs" (also in the old shot).
+- Removing any element on a page shifts that page's FreeHand dragids; hide instead of delete.
+
 Netflix **ECXD** job-application portfolio: a standalone HTML scroll-deck (Raven = the user).
 Goal: pixel-match the user's Figma redesign; she tweaks final positions via in-page FreeHand.
 
