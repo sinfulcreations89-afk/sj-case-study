@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sapphic Junkie - Case Study · ECXD</title>
+  <title>Sapphic Junkie - Case Study</title>
   <style>/* ============================================================
    SAPPHIC JUNKIE - Design System Tokens
    colors_and_type.css
@@ -1815,6 +1815,20 @@ body.arranging .deck { scroll-snap-type: none; }
 .trio-link span { font-size: 9.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cs-pink-soft); padding: 5px 11px; border-radius: 999px; background: rgba(229,82,127,0.12); border: 1px solid rgba(229,82,127,0.35); white-space: nowrap; z-index: 2; }
 .trio-link::before { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; height: 1.5px; background: linear-gradient(90deg, rgba(229,82,127,0.5), rgba(90,108,240,0.5)); }
 
+/* fan app loop (page 5) */
+.fan-wrap { display: flex; flex-direction: column; gap: clamp(18px, 2.6vh, 32px); }
+.fan-head { max-width: 980px; display: flex; flex-direction: column; gap: 14px; }
+.fan-head .lede { max-width: 82ch; margin: 0; }
+.fan-loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2.4vw, 36px); align-items: start; }
+.fan-step { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; min-width: 0; }
+.fan-step .phone { width: 100%; max-width: 188px; }
+.fan-step p { margin: 0; max-width: 230px; font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.7); }
+.fan-num { font-family: var(--font-display); font-style: italic; font-weight: 900; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--cs-pink-soft); }
+.fan-repeat { align-self: center; font-size: 13.5px; color: rgba(255,255,255,0.7); }
+.fan-repeat span { font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cs-pink-soft); padding: 6px 13px; margin-right: 8px; border-radius: 999px; background: rgba(229,82,127,0.12); border: 1px solid rgba(229,82,127,0.35); }
+@media (max-width: 920px) { .fan-loop { grid-template-columns: repeat(2, 1fr); row-gap: 34px; } }
+@media (max-width: 600px) { .fan-step .phone { max-width: 170px; } .fan-repeat { text-align: center; line-height: 2.2; } }
+
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 920px) {
   .split, .split.rev { grid-template-columns: 1fr; gap: 28px; }
@@ -1883,7 +1897,7 @@ body.arranging .deck { scroll-snap-type: none; }
 
     <!-- ════════════════ 01 · COVER ════════════════ -->
     <section class="page" data-label="01" data-screen-label="Cover">
-      <div class="page-num">01 / 05</div>
+      <div class="page-num">01 / 06</div>
 
       <!-- Cover C - Split with device -->
       <div class="cover-variant" data-cover="C" style="color: rgb(255, 169, 198); display:block;">
@@ -1904,10 +1918,10 @@ body.arranging .deck { scroll-snap-type: none; }
                 <p style="margin:0;">For over a decade, I helped audiences discover entertainment through branding, key art, and marketing campaigns.</p><p style="margin:0;"><strong style="color:#fff;">The landscape has changed.</strong></p><p style="margin:0;">Today&rsquo;s audiences navigate streaming platforms, weekly releases, creators, fan communities, reviews, and an overwhelming amount of content. I became interested in how product design could make that experience simpler.</p><p style="margin:0;"><strong style="color:#fff;">Sapphic Junkie</strong> is where I began exploring that question.</p>
               </div>
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:30px;">
-                <div class="role-card"><span class="rl">For</span><span class="rv">Netflix · ECXD</span></div>
+                <div class="role-card" style="display:none" aria-hidden="true"><span class="rl"></span><span class="rv"></span></div>
                 <div style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:600;">Rachel Siner</div>
               </div>
-            </div><div class="cover-ba reveal" data-d="2"><div class="ba-head"><span class="ba-pill l">Draft · placeholders</span><span class="ba-pill r">Final · shipped</span></div><div class="ba" style="--x:50%;"><img class="before" src="assets/draft-gallery.jpg" alt="Draft, placeholder gradient gallery"><img class="after" src="assets/503760a2-527a-4dad-a2e3-4ec74baf5605.jpg" alt="Final, real poster art"><div class="handle"></div><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"></path></svg></div></div><div class="cap"><span class="n">↳</span><span class="t">Draft → Final</span><span class="s">· placeholder gradients became real poster art &amp; live data. Drag to compare.</span></div></div>
+            </div><div class="cover-ba reveal" data-d="2"><div class="ba-head"><span class="ba-pill l">Draft · placeholders</span><span class="ba-pill r">Final · shipped</span></div><div class="ba" style="--x:50%;"><img class="before" src="assets/draft-gallery.jpg" alt="Draft, placeholder gradient gallery"><img class="after" src="assets/v2-series-all.jpg" alt="Final, real poster art"><div class="handle"></div><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"></path></svg></div></div><div class="cap"><span class="n">↳</span><span class="t">Draft → Final</span><span class="s">· placeholder gradients became real poster art &amp; live data. Drag to compare.</span></div></div>
 
             
           </div>
@@ -1917,7 +1931,7 @@ body.arranging .deck { scroll-snap-type: none; }
 
     <!-- ════════════════ 02 · WHY I BUILT IT ════════════════ -->
     <section class="page" data-label="02" data-screen-label="Why I Built It">
-      <div class="page-num">02 / 05</div>
+      <div class="page-num">02 / 06</div>
       <div class="page-inner split">
         <div class="stack">
           <div class="reveal"><div class="kicker">Why I built it</div></div>
@@ -1926,10 +1940,10 @@ body.arranging .deck { scroll-snap-type: none; }
           </h2>
           <p class="lede reveal" data-d="3" style="color:#fff;">I didn&rsquo;t set out to build an entertainment platform. I was trying to solve a problem I experienced as part of the audience.</p><p class="lede reveal" data-d="3" style="color:#fff;">Following a rapidly growing television genre meant constantly searching across streaming platforms, release schedules, cast pages, studio announcements, reviews, and social media just to stay informed.</p><ul class="qlist reveal" data-d="2" style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:16px;"><li style="font-family:'Archivo Black',sans-serif;font-size:19px;font-weight:400;color:rgba(255,255,255,0.88);"><span style="color:var(--cs-pink-soft);margin-right:10px;">&rsaquo;</span>Where is it streaming?</li><li style="font-family:'Archivo Black',sans-serif;font-size:19px;font-weight:400;color:rgba(255,255,255,0.88);"><span style="color:var(--cs-pink-soft);margin-right:10px;">&rsaquo;</span>When does Episode 6 air?</li><li style="font-family:'Archivo Black',sans-serif;font-size:19px;font-weight:400;color:rgba(255,255,255,0.88);"><span style="color:var(--cs-pink-soft);margin-right:10px;">&rsaquo;</span>Who stars in this series?</li><li style="font-family:'Archivo Black',sans-serif;font-size:19px;font-weight:400;color:rgba(255,255,255,0.88);"><span style="color:var(--cs-pink-soft);margin-right:10px;">&rsaquo;</span>Which studio made it?</li><li style="font-family:'Archivo Black',sans-serif;font-size:19px;font-weight:400;color:rgba(255,255,255,0.88);"><span style="color:var(--cs-pink-soft);margin-right:10px;">&rsaquo;</span>Is it worth watching?</li><li style="font-family:'Archivo Black',sans-serif;font-size:19px;font-weight:400;color:rgba(255,255,255,0.88);"><span style="color:var(--cs-pink-soft);margin-right:10px;">&rsaquo;</span>What should I watch next?</li></ul><p class="lede reveal" data-d="3" style="color:#fff;">I wanted one place where discovering, tracking, and experiencing entertainment felt effortless.</p><p class="lede reveal" data-d="3" style="color:#fff;"><strong style="color:var(--cs-pink-soft);">Sapphic Junkie</strong> became my answer.</p>
           <div class="stats reveal" data-d="4" style="margin-top:5vh;">
-            <div class="stat"><div class="v" style="color:var(--cs-pink-soft);">166</div><div class="l">Series tracked</div></div>
-            <div class="stat"><div class="v" style="color:#a78bff;">51</div><div class="l">Studios</div></div>
-            <div class="stat"><div class="v" style="color:#e58cb2;">207</div><div class="l">Talent</div></div>
-            <div class="stat"><div class="v" style="color:#7ea6e5;">20k+</div><div class="l">Followers</div></div>
+            <div class="stat"><div class="v" style="color:var(--cs-pink-soft);">274</div><div class="l">Series tracked</div></div>
+            <div class="stat"><div class="v" style="color:#a78bff;">73</div><div class="l">Studios</div></div>
+            <div class="stat"><div class="v" style="color:#e58cb2;">283</div><div class="l">Talent</div></div>
+            <div class="stat"><div class="v" style="color:#7ea6e5;">22k+</div><div class="l">Followers</div></div>
             <div class="stat"><div class="v" style="color:var(--cs-pink-soft);">1</div><div class="l">Source of truth</div></div>
           </div>
         </div>
@@ -1937,23 +1951,23 @@ body.arranging .deck { scroll-snap-type: none; }
               <svg class="graph-wires"></svg>
               <div class="gcard gc-top">
                 <div class="bar"><i></i><i></i><i></i></div>
-                <img src="assets/f266bf4c-8065-4e98-9f52-1181d9eddab8.jpg" alt="Series library">
+                <img src="assets/v2-series-all.jpg" alt="Series library">
               </div>
               <div class="gcard gc-left">
                 <div class="bar"><i></i><i></i><i></i></div>
-                <img src="assets/talent-grid.jpg" alt="Talent library">
+                <img src="assets/v2-talent-grid.jpg" alt="Talent library">
               </div>
               <div class="gcard gc-right">
                 <div class="bar"><i></i><i></i><i></i></div>
-                <img src="assets/7bbfb48b-3acb-4728-a19f-98c32900b256.jpg" alt="Talent detail">
+                <img src="assets/v2-talent-lookmhee.jpg" alt="Talent detail">
               </div>
               <div class="gcard gc-bl">
                 <div class="bar"><i></i><i></i><i></i></div>
-                <img src="assets/385c7b72-4ff2-4dd4-985d-6482ecc2ee53.jpg" alt="Series detail">
+                <img src="assets/v2-series-hero.jpg" alt="Series detail">
               </div>
               <div class="gcard gc-br">
                 <div class="bar"><i></i><i></i><i></i></div>
-                <img src="assets/058e0541-aa13-48d2-9fd7-920a507392e7.jpg" alt="Studios library">
+                <img src="assets/v2-companies.jpg" alt="Companies library">
               </div>
               <div class="gcenter">
                 <div class="orb"><img src="assets/79282b43-cc24-46e4-b4d9-3f7cb6072c50.png" alt="Sapphic Junkie"></div>
@@ -2014,7 +2028,7 @@ body.arranging .deck { scroll-snap-type: none; }
               <div class="cap"><span class="t">Template Studio</span><span class="s">· design the slide system</span></div>
             </div>
             <div class="cell reveal" data-d="2">
-              <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div></div><div class="shotwrap" style="height:186px;"><img src="assets/503760a2-527a-4dad-a2e3-4ec74baf5605.jpg" alt="Series Library"></div></div>
+              <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div></div><div class="shotwrap" style="height:186px;"><img src="assets/v2-series-all.jpg" alt="Series Library"></div></div>
               <div class="cap"><span class="t">Series Library</span><span class="s">· Notion-synced, real posters</span></div>
             </div>
             <div class="cell reveal" data-d="3">
@@ -2031,7 +2045,7 @@ body.arranging .deck { scroll-snap-type: none; }
               <div class="phone-notch"></div>
               <div class="phone-screen cover" style="height:454px;"><img src="assets/2e2ddbd8-00eb-4c6f-a621-a0a3606385fb.jpg" alt="Mobile, episode view"></div>
             </div>
-            <div class="cap" style="justify-content:center;"><span class="t">Mobile</span><span class="s">· same system, on the go</span></div>
+            <div class="cap" style="justify-content:center;"><span class="t">Fan app</span><span class="s">· same system, for viewers</span></div>
           </div>
         </div>
       </div>
@@ -2051,7 +2065,7 @@ body.arranging .deck { scroll-snap-type: none; }
         </div>
         <div class="ba reveal" data-d="1" style="--x:50%;">
           <img class="before" src="assets/draft-gallery.jpg" alt="Draft, placeholder gradient gallery">
-          <img class="after" src="assets/503760a2-527a-4dad-a2e3-4ec74baf5605.jpg" alt="Final, real poster art">
+          <img class="after" src="assets/v2-series-all.jpg" alt="Final, real poster art">
           <div class="balabel l">Draft · placeholders</div>
           <div class="balabel r">Final · shipped</div>
           <div class="handle"></div>
@@ -2062,16 +2076,16 @@ body.arranging .deck { scroll-snap-type: none; }
 
     <!-- ════════════════ 06 · CRAFT & AI ════════════════ -->
     <section class="page" data-label="07" data-screen-label="The Pipeline">
-      <div class="page-num">03 / 05</div>
-      <div class="page-inner"><div class="reveal" style="margin-bottom:12px;"><div class="kicker">The AI pipeline</div><h2 class="display" style="font-size:clamp(30px,4.2vw,56px);margin-top:14px;margin-left:6px;">One connected <span class="accent">workflow</span></h2><p class="lede" style="max-width:none;margin-top:2px !important;">Creating content shouldn&rsquo;t mean switching between research, notes, AI tools, calendars, spreadsheets, publishing platforms, and analytics.<br>I designed AI directly into the workflow: research, organization, drafting, structured data, and publishing all happen inside one system.</p></div><div class="reveal pipe-h" data-d="1"><div class="pstep-h"><div class="pnum">01</div><div class="pt">Fetch</div><div class="ps">AI watches YouTube, Facebook &amp; news for new GL-series announcements and rumors.</div></div><div class="pwire-h"></div><div class="pstep-h"><div class="pnum">02</div><div class="pt">Approve</div><div class="ps">Each find lands in Approvals as a structured draft, review, edit, approve or skip.</div></div><div class="pwire-h"></div><div class="pstep-h"><div class="pnum">03</div><div class="pt">Commit</div><div class="ps">Approving writes the Series, and auto-creates its Studio &amp; Talent links.</div><div class="pdown"></div></div></div><div class="split" style="grid-template-columns:2fr 1fr;gap:40px;align-items:start;"><div class="reveal" data-d="2"><div class="browser ring"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">studio.sapphicjunkie.com/approvals</div></div><div class="shotwrap" style="height:auto;"><img src="assets/p7-approvals.jpg" alt="Approvals, the AI pipeline inbox" style="display:block;width:100%;height:auto;"></div></div><div class="cap"><span class="n">↳</span><span class="t">Approvals</span><span class="s">· pending pipeline items awaiting review</span></div></div><div class="reveal" data-d="3"><div class="eyebrow" style="margin-bottom:16px;text-align:center;">One approval &rarr; three linked records</div><div class="linked-stack"><div class="lr-row"><div class="lr-num">1</div><div class="lr-sq"><img src="assets/p7-series.jpg" alt="Series, Hometown Romance" style="object-position:right center;"></div><div class="lr-label"><div class="lt">Series</div><div class="ls">Hometown Romance, written as a record</div></div></div><div class="lr-wire"></div><div class="lr-row"><div class="lr-num">2</div><div class="lr-sq"><img src="assets/p7-studio.jpg" alt="Studio, CHANGE2561" style="object-position:center center;"></div><div class="lr-label"><div class="lt">Studio</div><div class="ls">CHANGE2561, auto-linked</div></div></div><div class="lr-wire"></div><div class="lr-row"><div class="lr-num">3</div><div class="lr-sq"><img src="assets/p7-talent.jpg" alt="Talent, Sonya Saranphat" style="object-position:right center;"></div><div class="lr-label"><div class="lt">Talent</div><div class="ls">Sonya Saranphat, cross-linked</div></div></div></div></div></div></div>
+      <div class="page-num">03 / 06</div>
+      <div class="page-inner"><div class="reveal" style="margin-bottom:12px;"><div class="kicker">The AI pipeline</div><h2 class="display" style="font-size:clamp(30px,4.2vw,56px);margin-top:14px;margin-left:6px;">One connected <span class="accent">workflow</span></h2><p class="lede" style="max-width:none;margin-top:2px !important;">Creating content shouldn&rsquo;t mean switching between research, notes, AI tools, calendars, spreadsheets, publishing platforms, and analytics.<br>I designed AI directly into the workflow: research, organization, drafting, structured data, and publishing all happen inside one system.</p></div><div class="reveal pipe-h" data-d="1"><div class="pstep-h"><div class="pnum">01</div><div class="pt">Fetch</div><div class="ps">AI watches YouTube, Facebook &amp; news for new GL-series announcements and rumors.</div></div><div class="pwire-h"></div><div class="pstep-h"><div class="pnum">02</div><div class="pt">Approve</div><div class="ps">Each find lands in Approvals as a structured draft, review, edit, approve or skip.</div></div><div class="pwire-h"></div><div class="pstep-h"><div class="pnum">03</div><div class="pt">Commit</div><div class="ps">Approving writes the Series, and auto-creates its Studio &amp; Talent links.</div><div class="pdown"></div></div></div><div class="split" style="grid-template-columns:2fr 1fr;gap:40px;align-items:start;"><div class="reveal" data-d="2"><div class="browser ring"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">studio.sapphicjunkie.com/approvals</div></div><div class="shotwrap" style="height:auto;"><img src="assets/v2-approvals.jpg" alt="Approvals, the AI pipeline inbox" style="display:block;width:100%;height:auto;"></div></div><div class="cap"><span class="n">↳</span><span class="t">Approvals</span><span class="s">· pending pipeline items awaiting review</span></div></div><div class="reveal" data-d="3"><div class="eyebrow" style="margin-bottom:16px;text-align:center;">One approval &rarr; three linked records</div><div class="linked-stack"><div class="lr-row"><div class="lr-num">1</div><div class="lr-sq"><img src="assets/v2-series-detail.jpg" alt="Series, Hometown Romance" style="object-position:right center;"></div><div class="lr-label"><div class="lt">Series</div><div class="ls">Hometown Romance, written as a record</div></div></div><div class="lr-wire"></div><div class="lr-row"><div class="lr-num">2</div><div class="lr-sq"><img src="assets/v2-company-change.jpg" alt="Studio, CHANGE2561" style="object-position:center center;"></div><div class="lr-label"><div class="lt">Studio</div><div class="ls">CHANGE2561, auto-linked</div></div></div><div class="lr-wire"></div><div class="lr-row"><div class="lr-num">3</div><div class="lr-sq"><img src="assets/v2-talent-sonya.jpg" alt="Talent, Sonya Saranphat" style="object-position:right center;"></div><div class="lr-label"><div class="lt">Talent</div><div class="ls">Sonya Saranphat, cross-linked</div></div></div></div></div></div></div>
     </section>
 
     <!-- ════════════════ 07 · THE PIPELINE ════════════════ -->
     <section class="page" data-label="06" data-screen-label="Craft &amp; AI">
-      <div class="page-num">04 / 05</div>
+      <div class="page-num">04 / 06</div>
       <div class="page-inner">
         <div class="split" style="grid-template-columns:1.4fr 1fr;align-items:start;">
-          <div class="reveal" data-d="1" style="display:grid;grid-template-columns:1.65fr 1fr;gap:30px;align-items:start;margin-top:150px;"><div style="display:flex;flex-direction:column;gap:20px;min-width:0;"><div><div class="browser ring"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">studio.sapphicjunkie.com/series/hometown-romance</div></div><img src="assets/p5-b.jpg" alt="Hometown Romance, series detail" style="display:block;width:100%;height:auto;"></div><div class="cap"><span class="n">↳</span><span class="t">Series Detail</span><span class="s">· cinematic hero, cast &amp; where to watch</span></div></div><div><div class="browser ring"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">studio.sapphicjunkie.com/episode/hometown-romance-02</div></div><img src="assets/p5-a.jpg" alt="Episode review, dictate notes, AI drafts the post" style="display:block;width:100%;height:auto;"></div><div class="cap"><span class="n">↳</span><span class="t">Episode Review</span><span class="s">· dictate raw notes, AI drafts review &amp; caption</span></div></div></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;justify-self:center;"><div class="phone" style="width:262px;"><div class="phone-screen"><img src="assets/p5-mobile.jpg" alt="Mobile, Series library"></div></div><div class="cap" style="justify-content:center;"><span class="t">Mobile</span><span class="s">· same system, on the go</span></div></div></div>
+          <div class="reveal" data-d="1" style="display:grid;grid-template-columns:1.65fr 1fr;gap:30px;align-items:start;margin-top:150px;"><div style="display:flex;flex-direction:column;gap:20px;min-width:0;"><div><div class="browser ring"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">studio.sapphicjunkie.com/series/hometown-romance</div></div><img src="assets/v2-series-detail.jpg" alt="Hometown Romance, series detail" style="display:block;width:100%;height:auto;"></div><div class="cap"><span class="n">↳</span><span class="t">Series Detail</span><span class="s">· cinematic hero, cast &amp; where to watch</span></div></div><div><div class="browser ring"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">studio.sapphicjunkie.com/episode/hometown-romance-02</div></div><img src="assets/v2-episode-review.jpg" alt="Episode review, dictate notes, AI drafts the post" style="display:block;width:100%;height:auto;"></div><div class="cap"><span class="n">↳</span><span class="t">Episode Review</span><span class="s">· dictate raw notes, AI drafts review &amp; caption</span></div></div></div><div style="display:flex;flex-direction:column;align-items:center;gap:10px;justify-self:center;"><div class="phone" style="width:262px;"><div class="phone-screen"><img src="assets/v2-fan-discover.jpg" alt="Fan app, Discover"></div></div><div class="cap" style="justify-content:center;"><span class="t">Fan app</span><span class="s">· same system, for viewers</span></div></div></div>
           <div class="stack">
             <div class="reveal"><div class="kicker">Design</div></div>
             <h2 class="display reveal" data-d="1" style="font-size:clamp(30px,4vw,52px);">
@@ -2107,12 +2121,34 @@ body.arranging .deck { scroll-snap-type: none; }
       </div>
     </section>
 
-    <!-- ════════════════ 08 · WHY ECXD ════════════════ -->
-    <section class="page" data-label="08" data-screen-label="Why ECXD">
-      <div class="page-num">05 / 05</div>
+    <!-- ════════════════ 09 · THE FAN APP ════════════════ -->
+    <section class="page" data-label="09" data-screen-label="The Fan App">
+      <div class="page-num">05 / 06</div>
+      <div class="page-inner">
+        <div class="fan-wrap">
+          <div class="fan-head">
+            <div class="reveal"><div class="kicker">The fan app</div></div>
+            <h2 class="display reveal" data-d="1" style="font-size:clamp(30px,4.2vw,56px);margin-top:14px;">Discover, watch, <span class="accent">review, repeat</span></h2>
+            <p class="lede reveal" data-d="2" style="color:#fff;">Studio is where I build the catalog. The fan app is where viewers live in it, designed around the loop a fan goes through every week.</p>
+            <p class="lede reveal" data-d="2" style="color:#fff;">Building a watchlist should feel like play, not data entry. So it&rsquo;s a stack of series cards: <strong style="color:#fff;">swipe up to add it to your watchlist</strong>, right if you loved it, left if it wasn&rsquo;t for you, down if you haven&rsquo;t seen it. Every swipe fills your list and teaches the app your taste.</p>
+          </div>
+          <div class="fan-loop reveal" data-d="3">
+            <div class="fan-step"><div class="fan-num">01 · Discover</div><div class="phone"><div class="phone-screen"><img src="assets/v2-fan-discover.jpg" alt="Fan app, Discover: For You picks and what is airing now"></div></div><p>For You picks, SJ reviews and what&rsquo;s airing this week.</p></div>
+            <div class="fan-step"><div class="fan-num">02 · Swipe</div><div class="phone"><div class="phone-screen"><img src="assets/v2-fan-swipe.jpg" alt="Fan app, swipe to add series to your watchlist"></div></div><p>Swipe up to add to your watchlist. One card, one decision.</p></div>
+            <div class="fan-step"><div class="fan-num">03 · Watch</div><div class="phone"><div class="phone-screen"><img src="assets/v2-fan-watch.jpg" alt="Fan app, series page with Watch Ep 1 and trailer"></div></div><p>One tap to the next episode on its official platform.</p></div>
+            <div class="fan-step"><div class="fan-num">04 · Review</div><div class="phone"><div class="phone-screen"><img src="assets/v2-fan-review.jpg" alt="Fan app, mark watched, rate and write a review"></div></div><p>Mark it watched, rate it, write a review, see what other fans think.</p></div>
+          </div>
+          <div class="fan-repeat reveal" data-d="4"><span>&#8635; Repeat</span> Every review sharpens the next round of picks.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 08 · NEXT STEPS ════════════════ -->
+    <section class="page" data-label="08" data-screen-label="Next Steps">
+      <div class="page-num">06 / 06</div>
       <div class="page-inner">
         <div class="stack" style="max-width:880px;gap:26px;">
-          <div class="reveal"><div class="kicker">Why ECXD</div></div>
+          <div class="reveal"><div class="kicker">What&rsquo;s next</div></div>
           <h2 class="display reveal" data-d="1" style="font-size:clamp(36px,5.4vw,76px);">
             Next <span class="accent">steps</span>
           </h2>
